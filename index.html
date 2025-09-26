@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>藝蘊沄匯｜關於我與公益課程</title>
+  <meta name="description" content="藝蘊沄匯｜關於我（張秀蘭）與公益課程活動。全新模板：純 CSS、雜誌排版、相簿燈箱、手機友善。" />
+  <style>
+    /* ---------------------
+       基礎主題（純 CSS 無框架）
+       書報系、留白、米色紙感
+    ---------------------- */
+    :root{
+      --bg:#fbf6f3;           /* 紙感米色 */
+      --ink:#2b2b2b;          /* 內文墨色 */
+      --muted:#6b6b6b;        /* 次要文字 */
+      --brand:#d9899e;        /* 主色 */
+      --brand-ink:#7a2e3c;
+      --card:#ffffff;
+      --line:#efe5dd;
+      --radius:18px;
+      --shadow:0 10px 30px rgba(217,137,158,.12);
+      --w: min(1080px, 92vw);
+      --sans: system-ui, -apple-system, "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      --serif: ui-serif, Georgia, "Noto Serif TC", serif;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    }
+    @media (prefers-color-scheme: dark){
+      :root{ --bg:#101313; --ink:#f3f3f3; --muted:#b9c2bf; --card:#161919; --line:#262b2a; --brand:#7cc7b3; --brand-ink:#bfe8dc; }
+      .paper{background:linear-gradient(180deg, #fffefc, #fffaf8); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow)}
+    }
+    html{scroll-behavior:smooth}
+    body{margin:0; font-family:var(--sans); background:var(--bg); color:var(--ink);}
+    .wrap{width:var(--w); margin-inline:auto}
+    .sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0}
+
+    /* 頂部導覽：details/summary 手機友善 */
+    header{position:sticky; top:0; z-index:20; background:color-mix(in srgb, var(--bg) 88%, #fff 12%); border-bottom:1px solid var(--line);}
+    .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
+    .brand{font-family:var(--serif); font-weight:700; letter-spacing:.02em; font-size:clamp(20px, 3vw, 28px)}
+    .brand em{color:var(--brand); font-style:normal}
+    details.navdrop{display:none}
+    nav a{color:var(--muted); text-decoration:none; margin-left:24px}
+    nav a:hover{color:var(--brand)}
+    @media (max-width: 800px){
+      nav{display:none}
+      details.navdrop{display:block}
+      details.navdrop summary{list-style:none; cursor:pointer; border:1px solid var(--line); padding:8px 12px; border-radius:10px}
+      details.navdrop[open] summary{background:var(--card)}
+      .panel{margin-top:10px; border:1px solid var(--line); border-radius:12px; background:var(--card)}
+      .panel a{display:block; padding:12px 14px; border-bottom:1px solid var(--line); color:var(--ink)}
+      .panel a:last-child{border-bottom:none}
+    }
+
+    /* Hero */
+    .hero{
+      padding: clamp(48px, 8vw, 96px) 0;
+      border-bottom:1px solid var(--line);
+      background:
+        radial-gradient(1200px 700px at -10% -20%, rgba(217,137,158,.10), transparent),
+        radial-gradient(900px 500px at 110% 0%, rgba(217,137,158,.08), transparent);
+    }
+    .hero p{max-width:38ch; color:var(--muted); margin:18px 0 0; font-size: clamp(var(--fs-hero-sub-min), 2.2vw, var(--fs-hero-sub-max));}
+
+    /* 卡片紙張 */
+    .paper{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow)}
+
+    /* 關於我：左右欄 */
+    .about{
+      display:grid; grid-template-columns: 1fr 1.2fr; gap:28px;
+      padding: clamp(36px, 6vw, 64px) 0; align-items:start;
+    }
+    .about .side{position:sticky; top:84px; align-self:start}
+    .about h2{font-family:var(--serif); font-size:clamp(22px, 3vw, 32px); margin:0}
+    .badge{color:var(--brand-ink); background:color-mix(in srgb, var(--brand) 18%, #fff 82%); display:inline-block; padding:6px 10px; border-radius:999px; border:1px solid color-mix(in srgb, var(--brand) 40%, #fff 60%); margin-top:8px}
+    .quote{border-left:4px solid var(--brand); padding:12px 14px; color:var(--ink); margin-top:14px; background:color-mix(in srgb, var(--brand) 8%, #fff 92%); border-radius:12px;}
+    .about article{line-height:1.95; font-size:clamp(15px, 1.3vw, 17px)}
+    .about article p:first-child::first-letter{font-family:var(--serif); font-size:3.2em; float:left; line-height:.85; padding-right:.22em; color:var(--brand)}
+    @media (max-width: 900px){ .about{grid-template-columns:1fr;}.about .side{position:static} }
+
+    /* 課程區：交錯條帶 + 相簿 */
+    .band{padding: clamp(36px, 6vw, 72px) 0; border-top:1px solid var(--line)}
+    .band h3{font-family:var(--serif); font-size:clamp(20px, 2.6vw, 28px); margin:0}
+    .lead{color:var(--muted); margin-top:8px}
+    .timeline{position:relative; margin-top:26px;}
+    .timeline::before{content:""; position:absolute; inset:0 auto 0 12px; width:2px; background:var(--line)}
+    .node{position:relative; margin-left:36px; margin-bottom:34px}
+    .node::before{content:""; position:absolute; left:-28px; top:10px; width:10px; height:10px; border-radius:50%; background:var(--brand)}
+    .course{padding:18px;}
+    .course h4{margin:0; font-size:clamp(18px, 2.2vw, 22px)}
+    .meta{margin-top:6px; color:var(--muted); font-size:14px}
+    .course .text{margin-top:14px; line-height:1.95}
+
+    /* 相簿 Grid（可配合燈箱） */
+    .gallery{margin-top:16px; display:grid; grid-template-columns:repeat(5, 1fr); gap:8px}
+    .gallery img{
+      width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:14px;
+      border:1px solid color-mix(in srgb, var(--brand) 20%, #fff 80%);
+      box-shadow:var(--shadow); cursor:zoom-in; transition:transform .2s ease, box-shadow .2s ease
+    }
+    .gallery img:hover{transform:scale(1.02); box-shadow:0 12px 28px rgba(217,137,158,.18)}
+    @media (max-width: 1100px){ .gallery{grid-template-columns:repeat(4, 1fr);} }
+    @media (max-width: 800px){ .gallery{grid-template-columns:repeat(3, 1fr);} }
+    @media (max-width: 560px){ .gallery{grid-template-columns:repeat(2, 1fr);} }
+
+    /* CTA */
+    .cta{background:linear-gradient(180deg, color-mix(in srgb, var(--brand) 20%, #fff 80%), transparent); text-align:center}
+    .btn{display:inline-block; margin-top:14px; padding:12px 18px; border-radius:999px; color:white; background:var(--brand); text-decoration:none; box-shadow:0 6px 18px rgba(217,137,158,.18)}
+    .btn:hover{filter:brightness(.98); transform:translateY(-1px)}
+
+    /* Contact */
+    .grid2{display:grid; grid-template-columns:1.1fr .9fr; gap:20px}
+    @media (max-width: 860px){ .grid2{grid-template-columns:1fr} }
+
+    /* Footer */
+    footer{border-top:1px solid var(--line); color:var(--muted); font-size:14px; padding:18px 0}
+
+    /* 燈箱（dialog） */
+    dialog#lightbox{padding:0; border:0; background:rgba(0,0,0,.86)}
+    dialog#lightbox::backdrop{background:rgba(0,0,0,.6)}
+    .lb-wrap{min-height:100vh; display:grid; place-items:center;}
+    .lb-wrap img{max-width:92vw; max-height:84vh; border-radius:18px; box-shadow:0 20px 60px rgba(0,0,0,.45)}
+    .lb-close{position:fixed; top:14px; right:18px; background:#000; color:#fff; border:1px solid #fff3; border-radius:999px; padding:8px 12px; font-size:13px; opacity:.85}
+
+    /* 關於我：個人照片樣式 */
+    .portrait{margin-top:16px; border-radius:var(--radius); overflow:hidden; border:1px solid var(--line); box-shadow:var(--shadow); background:var(--card)}
+    .portrait img{display:block; width:100%; aspect-ratio:4/5; object-fit:cover}
+    .portrait figcaption{padding:10px 12px; font-size:13px; color:var(--muted)}
+
+    /* ===== 字體大小【總控】覆寫區 ===== */
+    :root{
+      --fs-body: 16px;
+
+      --fs-hero-min: 30px;  --fs-hero-max: 60px;
+      --fs-hero-sub-min: 16px;  --fs-hero-sub-max: 40px;
+
+      --fs-h2-min: 24px;  --fs-h2-max: 34px;
+      --fs-h3-min: 22px;  --fs-h3-max: 30px;
+      --fs-h4-min: 19px;  --fs-h4-max: 24px;
+      --fs-meta: 14px;
+    }
+    body{ font-size: var(--fs-body); }
+    .hero h1{ font-size: clamp(var(--fs-hero-min), 5vw, var(--fs-hero-max)); }
+    .about h2{ font-size: clamp(var(--fs-h2-min), 3vw, var(--fs-h2-max)); }
+    .band h3{ font-size: clamp(var(--fs-h3-min), 2.6vw, var(--fs-h3-max)); }
+    .course h4{ font-size: clamp(var(--fs-h4-min), 2.2vw, var(--fs-h4-max)); }
+    .meta{ font-size: var(--fs-meta); }
+
+    @media (max-width: 420px){
+      :root{ --fs-body: 17px; --fs-hero-min: 32px; }
+    }
+
+    /* ===== 對齊修正：讓右側文章卡片往下些與左側照片對齊 ===== */
+    .about article.paper{ margin-top: clamp(12px, 3vw, 60px); }
+    @media (max-width: 900px){
+      .about article.paper{ margin-top: 0; }
+    }
+  </style>
+</head>
+<body>
+  <a class="sr-only" href="#main">跳到主內容</a>
+
+  <!-- Header -->
+  <header>
+    <div class="wrap nav">
+      <div class="brand">藝蘊沄匯 <em>AYH</em></div>
+      <nav aria-label="主要導覽">
+        <a href="#about">關於我</a>
+        <a href="#programs">公益課程</a>
+        <a href="#contact">聯絡</a>
+      </nav>
+      <details class="navdrop">
+        <summary aria-label="開啟選單">選單</summary>
+        <div class="panel">
+          <a href="#about">關於我</a>
+          <a href="#programs">公益課程</a>
+          <a href="#contact">聯絡</a>
+        </div>
+      </details>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="wrap">
+      <h1>在學習裡相遇，<span style="color:var(--brand)">用行動把溫暖做出來</span></h1>
+      <p>藝蘊沄匯把多元學習與公益實踐放在同一條路上。每一次相聚，都是彼此成長、也讓世界更好的開始。</p>
+    </div>
+  </section>
+
+  <main id="main" class="wrap">
+    <!-- About -->
+    <section id="about" class="about">
+      <div class="side">
+        <h2>關於我｜張秀蘭</h2>
+        <div class="badge">藝蘊沄匯 負責人</div>
+        <div class="quote">我相信：學習不只是為自己，更能在過程中找到生命的方向，並把愛與善的力量傳遞出去。</div>
+        <figure class="portrait" aria-label="張秀蘭照片">
+          <img src="https://i.postimg.cc/x1xY2TLh/photo-2025-09-26-13-43-53.jpg" alt="張秀蘭（藝蘊沄匯 負責人）" loading="lazy" onerror="this.closest('figure').style.display='none'" />
+          <figcaption>張秀蘭｜藝蘊沄匯 負責人</figcaption>
+        </figure>
+      </div>
+      <article class="paper" style="padding:22px 22px 6px">
+        <p>我成長於一個環境不錯的家庭。父母白手起家、踏實打拼，讓我從小明白：擁有並非理所當然，努力才是最可靠的底氣。也因此，我學會自立自強、珍惜所得。</p>
+        <p>人生有過低谷。我曾遭遇嚴重的詐騙，痛苦與迷惘讓我幾乎失去方向。所幸在最艱難的時刻，我遇見了人生的貴人，重新站了起來。這段經歷讓我看見自己的堅韌，也下定決心：要好好活下去，把失去的努力找回來，活出屬於自己的價值。</p>
+        <p>走出陰影後，我投入公益。我深知每個人都需要被看見、被陪伴。當我看見有人因一次課程、一段相處而重展笑顏時，便更確信：善意能被看見，也能被延續。這也是我創立「藝蘊沄匯」的初心——讓多元學習與公益同行，讓我們在學習中成長，在付出中找到意義。</p>
+      </article>
+    </section>
+
+    <!-- Programs band -->
+    <section id="programs" class="band">
+      <div>
+        <h3>公益課程活動</h3>
+        <p class="lead">我們把課程帶進教養院、療養院與長照中心，讓手作成為交流的語言，也讓每一次創作，成為把愛具體化的小小儀式。</p>
+      </div>
+
+      <div class="timeline">
+        <!-- Course 1 -->
+        <div class="node paper">
+          <div class="course">
+            <h4>乾燥花壁畫｜手作陪伴課</h4>
+            <div class="meta">地點：私立尚德老人養護中心</div>
+            <div class="text">
+              <p>清晨，我們帶著材料箱往南投出發。抵達後，先陪長輩挑色、暈染，再把一小束乾燥花細緻綁上。一張張帶著祝福的作品，就在指尖慢慢成形。</p>
+              <p>顏色在紙上像在呼吸，眼神也跟著亮了起來。教室裡不時傳來輕快的驚嘆與笑聲。那一刻，我們明白：幸福可以如此安靜地發生。</p>
+              <p>每一張完成的作品、每一句暖心的謝謝、每一個真誠的微笑，都把一路的疲憊化成力量，也把琳琳的心帶回最初的理由——花時間陪伴，用雙手把愛做出來。</p>
+              <p>結束前，桌面排滿風乾中的作品，像一列小小展覽。有人把創作貼在胸前，說要送給房友；也有人悄悄替同桌把蝴蝶結拉得更好看。這些看似不大的幫忙卻很暖，讓整個午後都亮了起來。</p>
+              <p>或許這只是短短的一次相遇，但不是匆匆的一面。接下來，我們還會到不同縣市走走；在育幼院、在療養院，把愛做成看得見、摸得到的小事，讓那道光在彼此的眼裡慢慢擴散。</p>
+            </div>
+            <div class="gallery" aria-label="尚德課程相簿">
+              <img src="https://i.postimg.cc/nrSfqnpN/1.jpg" alt="尚德養護中心 乾燥花壁畫 1" loading="lazy" />
+              <img src="https://i.postimg.cc/rprFnDkZ/2.jpg" alt="尚德養護中心 乾燥花壁畫 2" loading="lazy" />
+              <img src="https://i.postimg.cc/cHG1Vd1x/3.jpg" alt="尚德養護中心 乾燥花壁畫 3" loading="lazy" />
+              <img src="https://i.postimg.cc/bwMw9QK2/4.jpg" alt="尚德養護中心 乾燥花壁畫 4" loading="lazy" />
+              <img src="https://i.postimg.cc/hthGmC3B/5.jpg" alt="尚德養護中心 乾燥花壁畫 5" loading="lazy" />
+              <img src="https://i.postimg.cc/jqXqFVpT/6.jpg" alt="尚德養護中心 乾燥花壁畫 6" loading="lazy" />
+              <img src="https://i.postimg.cc/tTdRb87h/7.jpg" alt="尚德養護中心 乾燥花壁畫 7" loading="lazy" />
+              <img src="https://i.postimg.cc/J0P1DJN0/8.jpg" alt="尚德養護中心 乾燥花壁畫 8" loading="lazy" />
+              <img src="https://i.postimg.cc/Y0prC8mT/9.jpg" alt="尚德養護中心 乾燥花壁畫 9" loading="lazy" />
+              <img src="https://i.postimg.cc/bNwYXCPt/10.jpg" alt="尚德養護中心 乾燥花壁畫 10" loading="lazy" />
+              <img src="https://i.postimg.cc/02Xk9Y5H/11.jpg" alt="尚德養護中心 乾燥花壁畫 11" loading="lazy" />
+              <img src="https://i.postimg.cc/y8JVxDk6/12.jpg" alt="尚德養護中心 乾燥花壁畫 12" loading="lazy" />
+              <img src="https://i.postimg.cc/6pDBvBvr/13.jpg" alt="尚德養護中心 乾燥花壁畫 13" loading="lazy" />
+              <img src="https://i.postimg.cc/QtDsfSSV/14.jpg" alt="尚德養護中心 乾燥花壁畫 14" loading="lazy" />
+              <img src="https://i.postimg.cc/HLXd0Fwf/15.jpg" alt="尚德養護中心 乾燥花壁畫 15" loading="lazy" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Course 2 -->
+        <div class="node paper">
+          <div class="course">
+            <h4>把色彩抱回家｜流體熊創作課</h4>
+            <div class="meta">地點：台中市私立玫園老人長期照顧中心（養護型）</div>
+            <div class="text">
+              <p>昨天，我們再次走進玫園，把流體熊變成大家的創作現場，繼續用課程連接公益，讓每位長者在顏色裡找到專屬的節奏與表情。</p>
+              <p>看著各色顏料在熊身上自由流動，長者們的眼神閃著亮光；教室裡不時傳來驚呼與笑聲。那一刻內心很受觸動——覺得所有努力都值得。一同學、一同做，從來不是單向的付出，而是彼此的成長。</p>
+              <p>每一隻完成的熊、每一句暖暖的謝謝、每一個真誠的微笑，都讓琳琳深深被鼓勵。</p>
+              <p>收拾器材時，看著一整排正風乾的熊，心裡湧上一種安穩的踏實。也謝謝每位長者給我們的信任與笑容。接下來，我們還會帶著更多主題，讓善意成為習慣，讓學習成為日常，讓今天比昨天更踏實。</p>
+            </div>
+            <div class="gallery" aria-label="玫園課程相簿">
+              <img src="https://i.postimg.cc/sx5sdkrL/photo-2025-08-17-14-49-19.jpg" alt="玫園 流體熊 課程 1" loading="lazy" />
+              <img src="https://i.postimg.cc/1RpDPN3X/photo-2025-08-17-14-49-34.jpg" alt="玫園 流體熊 課程 2" loading="lazy" />
+              <img src="https://i.postimg.cc/gjPR8GNG/photo-2025-08-17-14-49-35.jpg" alt="玫園 流體熊 課程 3" loading="lazy" />
+              <img src="https://i.postimg.cc/nrYm1NPB/photo-2025-08-17-14-49-48.jpg" alt="玫園 流體熊 課程 4" loading="lazy" />
+              <img src="https://i.postimg.cc/0QSDzzGt/photo-2025-08-17-14-49-49.jpg" alt="玫園 流體熊 課程 5" loading="lazy" />
+              <img src="https://i.postimg.cc/rwp4SnCR/photo-2025-08-17-14-49-51.jpg" alt="玫園 流體熊 課程 6" loading="lazy" />
+              <img src="https://i.postimg.cc/sDs72DMc/photo-2025-08-17-15-14-07.jpg" alt="玫園 流體熊 課程 7" loading="lazy" />
+              <img src="https://i.postimg.cc/dt6dZPdK/photo-2025-08-17-15-14-11.jpg" alt="玫園 流體熊 課程 8" loading="lazy" />
+              <img src="https://i.postimg.cc/g2BZ4VNS/photo-2025-08-17-15-14-13.jpg" alt="玫園 流體熊 課程 9" loading="lazy" />
+              <img src="https://i.postimg.cc/fbG0Qw4Y/photo-2025-08-17-15-14-42.jpg" alt="玫園 流體熊 課程 10" loading="lazy" />
+              <img src="https://i.postimg.cc/LsYZWJWH/photo-2025-08-17-15-23-19.jpg" alt="玫園 流體熊 課程 11" loading="lazy" />
+              <img src="https://i.postimg.cc/yd03VwBt/photo-2025-08-17-15-23-20.jpg" alt="玫園 流體熊 課程 12" loading="lazy" />
+              <img src="https://i.postimg.cc/PJhpN25x/photo-2025-08-17-15-23-22.jpg" alt="玫園 流體熊 課程 13" loading="lazy" />
+              <img src="https://i.postimg.cc/SRrX9CnG/photo-2025-08-17-15-23-47.jpg" alt="玫園 流體熊 課程 14" loading="lazy" />
+              <img src="https://i.postimg.cc/bYHS4cm2/photo-2025-08-18-12-35-23.jpg" alt="玫園 流體熊 課程 15" loading="lazy" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="band paper cta">
+      <div class="wrap" style="text-align:center">
+        <h3 style="font-family:var(--serif); margin:0; font-size:clamp(20px,2.4vw,28px)">一起參與</h3>
+        <p class="lead" style="margin-inline:auto; max-width:60ch">若您想讓課程走進更多地方，或願意贊助材料、協助活動，歡迎與我們聯繫。每一份支持，都是把愛延續更遠的力量。</p>
+        <a class="btn" href="#contact">聯絡我們</a>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="band">
+      <div class="grid2">
+        <div class="paper" style="padding:22px">
+          <h3 style="font-family:var(--serif); margin:0">聯絡資訊</h3>
+          <p class="lead">合作邀約、材料贊助、課程帶入機構，歡迎寫信或來訊聯繫：</p>
+          <ul>
+            <li>負責人：張秀蘭（藝蘊沄匯）</li>
+            <li>電子郵件：zixulan0823@gmail.com</li>
+            <li>服務範圍：全台各地之學校、育幼院、療養院、長照中心與社福單位</li>
+          </ul>
+        </div>
+        <div class="paper" style="padding:22px">
+          <h4 style="margin:0; color:var(--muted); font-size:14px">我們的承諾</h4>
+          <p style="margin-top:8px; line-height:1.95">溫柔而堅定地，把每一場課程、每一次陪伴，都做成可以被看見的善意；讓學習與公益在日常裡發芽。</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">© <span id="year"></span> 藝蘊沄匯．All rights reserved.</div>
+  </footer>
+
+  <!-- 圖片燈箱（dialog） -->
+  <dialog id="lightbox">
+    <div class="lb-wrap">
+      <img id="lightboxImg" src="" alt="預覽圖片" />
+      <button class="lb-close" aria-label="關閉預覽">關閉</button>
+    </div>
+  </dialog>
+
+  <script>
+    // 動態年份
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // 行動導覽：點選後自動收合
+    const navdrop = document.querySelector('details.navdrop');
+    document.querySelectorAll('.panel a').forEach(a=>a.addEventListener('click',()=>{navdrop.open=false;}));
+
+    // 圖片燈箱
+    const dlg = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightboxImg');
+    const lbClose = document.querySelector('.lb-close');
+    document.querySelectorAll('.gallery img, .portrait img').forEach(img=>{
+      img.addEventListener('click', ()=>{ lbImg.src = img.src; dlg.showModal(); });
+    });
+    lbClose.addEventListener('click', ()=> dlg.close());
+    dlg.addEventListener('click', (e)=>{ if(e.target===dlg) dlg.close(); });
+    document.addEventListener('keydown', (e)=>{ if(e.key==='Escape' && dlg.open) dlg.close(); });
+  </script>
+</body>
+</html>
