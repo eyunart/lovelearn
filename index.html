@@ -14,7 +14,7 @@
       --bg:#fbf6f3;           /* 紙感米色 */
       --ink:#2b2b2b;          /* 內文墨色 */
       --muted:#6b6b6b;        /* 次要文字 */
-      --brand:#d9899e;        /* 主色 */
+      --brand:#d9899e;        /* 品牌色 */
       --brand-ink:#7a2e3c;
       --card:#ffffff;
       --line:#efe5dd;
@@ -27,7 +27,7 @@
     }
     @media (prefers-color-scheme: dark){
       :root{ --bg:#101313; --ink:#f3f3f3; --muted:#b9c2bf; --card:#161919; --line:#262b2a; --brand:#7cc7b3; --brand-ink:#bfe8dc; }
-      .paper{background:linear-gradient(180deg, #fffefc, #fffaf8); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow)}
+      .paper{box-shadow:none}
     }
     html{scroll-behavior:smooth}
     body{margin:0; font-family:var(--sans); background:var(--bg); color:var(--ink);}
@@ -53,55 +53,60 @@
     }
 
     /* Hero */
-    .hero{
-      padding: clamp(48px, 8vw, 96px) 0;
-      border-bottom:1px solid var(--line);
-      background:
-        radial-gradient(1200px 700px at -10% -20%, rgba(217,137,158,.10), transparent),
-        radial-gradient(900px 500px at 110% 0%, rgba(217,137,158,.08), transparent);
-    }
+    .hero{padding: clamp(48px, 8vw, 96px) 0; border-bottom:1px solid var(--line);
+           background:radial-gradient(1200px 700px at -10% -20%, rgba(217,137,158,.10), transparent),
+                       radial-gradient(900px 500px at 110% 0%, rgba(217,137,158,.08), transparent);}
     .hero p{max-width:38ch; color:var(--muted); margin:18px 0 0; font-size: clamp(var(--fs-hero-sub-min), 2.2vw, var(--fs-hero-sub-max));}
 
     /* 卡片紙張 */
     .paper{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow)}
 
     /* 關於我：左右欄 */
-    .about{
-      display:grid; grid-template-columns: 1fr 1.2fr; gap:28px;
-      padding: clamp(36px, 6vw, 64px) 0; align-items:start;
-    }
+    .about{display:grid; grid-template-columns: 1fr 1.2fr; gap:28px; padding: clamp(36px, 6vw, 64px) 0; align-items:start}
     .about .side{position:sticky; top:84px; align-self:start}
-    .about h2{font-family:var(--serif); font-size:clamp(22px, 3vw, 32px); margin:0}
+    .about h2{font-family:var(--serif); margin:0}
     .badge{color:var(--brand-ink); background:color-mix(in srgb, var(--brand) 18%, #fff 82%); display:inline-block; padding:6px 10px; border-radius:999px; border:1px solid color-mix(in srgb, var(--brand) 40%, #fff 60%); margin-top:8px}
     .quote{border-left:4px solid var(--brand); padding:12px 14px; color:var(--ink); margin-top:14px; background:color-mix(in srgb, var(--brand) 8%, #fff 92%); border-radius:12px;}
-    .about article{line-height:1.95; font-size:clamp(15px, 1.3vw, 17px)}
+    .about article{line-height:1.95}
     .about article p:first-child::first-letter{font-family:var(--serif); font-size:3.2em; float:left; line-height:.85; padding-right:.22em; color:var(--brand)}
     @media (max-width: 900px){ .about{grid-template-columns:1fr;}.about .side{position:static} }
 
     /* 課程區：交錯條帶 + 相簿 */
     .band{padding: clamp(36px, 6vw, 72px) 0; border-top:1px solid var(--line)}
-    .band h3{font-family:var(--serif); font-size:clamp(20px, 2.6vw, 28px); margin:0}
+    .band h3{font-family:var(--serif); margin:0}
     .lead{color:var(--muted); margin-top:8px}
     .timeline{position:relative; margin-top:26px;}
     .timeline::before{content:""; position:absolute; inset:0 auto 0 12px; width:2px; background:var(--line)}
     .node{position:relative; margin-left:36px; margin-bottom:34px}
     .node::before{content:""; position:absolute; left:-28px; top:10px; width:10px; height:10px; border-radius:50%; background:var(--brand)}
     .course{padding:18px;}
-    .course h4{margin:0; font-size:clamp(18px, 2.2vw, 22px)}
-    .meta{margin-top:6px; color:var(--muted); font-size:14px}
-    .course .text{margin-top:14px; line-height:1.95}
+    .course h4{margin:0}
+    .meta{margin-top:6px; color:var(--muted)}
 
-    /* 相簿 Grid（可配合燈箱） */
+    /* 相簿：桌機為 grid；手機橫向滑動 */
     .gallery{margin-top:16px; display:grid; grid-template-columns:repeat(5, 1fr); gap:8px}
-    .gallery img{
-      width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:14px;
-      border:1px solid color-mix(in srgb, var(--brand) 20%, #fff 80%);
-      box-shadow:var(--shadow); cursor:zoom-in; transition:transform .2s ease, box-shadow .2s ease
-    }
+    .gallery img{width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:14px; border:1px solid color-mix(in srgb, var(--brand) 20%, #fff 80%); box-shadow:var(--shadow); cursor:zoom-in; transition:transform .2s ease, box-shadow .2s ease}
     .gallery img:hover{transform:scale(1.02); box-shadow:0 12px 28px rgba(217,137,158,.18)}
     @media (max-width: 1100px){ .gallery{grid-template-columns:repeat(4, 1fr);} }
     @media (max-width: 800px){ .gallery{grid-template-columns:repeat(3, 1fr);} }
-    @media (max-width: 560px){ .gallery{grid-template-columns:repeat(2, 1fr);} }
+
+    /* 手機：改為橫向滑動（snap） */
+    @media (max-width: 860px){
+      .gallery{
+        display:flex;
+        overflow-x:auto;
+        scroll-snap-type:x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap:10px;
+        padding-bottom:6px;
+      }
+      .gallery img{
+        min-width:80%;
+        flex:0 0 auto;
+        scroll-snap-align:center;
+        aspect-ratio:4/3;
+      }
+    }
 
     /* CTA */
     .cta{background:linear-gradient(180deg, color-mix(in srgb, var(--brand) 20%, #fff 80%), transparent); text-align:center}
@@ -127,17 +132,17 @@
     .portrait img{display:block; width:100%; aspect-ratio:4/5; object-fit:cover}
     .portrait figcaption{padding:10px 12px; font-size:13px; color:var(--muted)}
 
-    /* ===== 字體大小【總控】覆寫區 ===== */
+    /* ===== 字體大小【總控】覆寫區（放在 <style> 最後） ===== */
     :root{
-      --fs-body: 16px;
+      --fs-body: 16px;            /* 內文大小總控 */
 
+      /* 標題最小/最大（會隨寬度漸變） */
       --fs-hero-min: 30px;  --fs-hero-max: 60px;
       --fs-hero-sub-min: 16px;  --fs-hero-sub-max: 40px;
-
-      --fs-h2-min: 24px;  --fs-h2-max: 34px;
-      --fs-h3-min: 22px;  --fs-h3-max: 30px;
-      --fs-h4-min: 19px;  --fs-h4-max: 24px;
-      --fs-meta: 14px;
+      --fs-h2-min: 24px;   --fs-h2-max: 34px;
+      --fs-h3-min: 22px;   --fs-h3-max: 30px;
+      --fs-h4-min: 19px;   --fs-h4-max: 24px;
+      --fs-meta:   14px;
     }
     body{ font-size: var(--fs-body); }
     .hero h1{ font-size: clamp(var(--fs-hero-min), 5vw, var(--fs-hero-max)); }
@@ -145,15 +150,20 @@
     .band h3{ font-size: clamp(var(--fs-h3-min), 2.6vw, var(--fs-h3-max)); }
     .course h4{ font-size: clamp(var(--fs-h4-min), 2.2vw, var(--fs-h4-max)); }
     .meta{ font-size: var(--fs-meta); }
-
     @media (max-width: 420px){
-      :root{ --fs-body: 17px; --fs-hero-min: 32px; }
+      :root{
+        --fs-body: 17px;      /* 手機內文再放大一點 */
+        --fs-hero-min: 32px;  /* 手機首屏標題再放大 */
+      }
     }
 
-    /* ===== 對齊修正：讓右側文章卡片往下些與左側照片對齊 ===== */
-    .about article.paper{ margin-top: clamp(12px, 3vw, 60px); }
-    @media (max-width: 900px){
-      .about article.paper{ margin-top: 0; }
+    /* 手機：捲動時 header 不透明（實心底色） */
+    @media (max-width: 800px){
+      header{
+        background: var(--bg) !important;   /* 用整站底色，取消透明 */
+        border-bottom: 1px solid var(--line);
+        box-shadow: 0 2px 12px rgba(0,0,0,.06); /* 可依喜好調整或刪除 */
+      }
     }
   </style>
 </head>
@@ -196,7 +206,7 @@
         <div class="badge">藝蘊沄匯 負責人</div>
         <div class="quote">我相信：學習不只是為自己，更能在過程中找到生命的方向，並把愛與善的力量傳遞出去。</div>
         <figure class="portrait" aria-label="張秀蘭照片">
-          <img src="https://i.postimg.cc/x1xY2TLh/photo-2025-09-26-13-43-53.jpg" alt="張秀蘭（藝蘊沄匯 負責人）" loading="lazy" onerror="this.closest('figure').style.display='none'" />
+          <img src="https://i.postimg.cc/x1xY2TLh/photo-2025-09-26-13-43-53.jpg" alt="張秀蘭（藝蘊沄匯 負責人）" loading="lazy" onerror="this.closest('figure').style.display='none'"/>
           <figcaption>張秀蘭｜藝蘊沄匯 負責人</figcaption>
         </figure>
       </div>
@@ -325,7 +335,7 @@
     // 動態年份
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // 行動導覽：點選後自動收合
+    // 行動導覽：點連結後自動收合
     const navdrop = document.querySelector('details.navdrop');
     document.querySelectorAll('.panel a').forEach(a=>a.addEventListener('click',()=>{navdrop.open=false;}));
 
