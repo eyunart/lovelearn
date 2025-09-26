@@ -1,9 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
   <url>
     <loc>https://eyunart.com/</loc>
-    <lastmod>2025-09-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+
+    <!-- OG 封面圖 -->
+    <image:image>
+      <image:loc>https://eyunart.com/img/og-cover.jpg</image:loc>
+      <image:title>藝蘊沄匯｜站點封面</image:title>
+    </image:image>
+
+    <!-- 關於我照片 -->
+    <image:image>
+      <image:loc>https://eyunart.com/img/about/owner.jpg</image:loc>
+      <image:title>張秀蘭（藝蘊沄匯 負責人）</image:title>
+    </image:image>
+
+    <!-- 尚德課程相簿（1–15） -->
+    <image:image><image:loc>https://eyunart.com/img/courses/shangde/1.jpg</image:loc><image:title>尚德養護中心 乾燥花壁畫 1</image:title></image:image>
+    <image:image><image:loc>https://eyunart.com/img/courses/shangde/2.jpg</image:loc><image:title>尚德養護中心 乾燥花壁畫 2</image:title></image:image>
+    <image:image><image:loc>https://eyunart.com/img/courses/shangde/3.jpg</image:loc><image:title>尚德養護中心 乾燥花壁畫 3</image:title></image:image>
+    <image:image><image:loc>https://eyunart.com/img/courses/shangde/4.jpg</image:loc><image:title>尚德養護中心 乾燥花壁畫 4</image:title></image:image>
+    <image:image><image:loc>https://eyunart.com/img/courses/shangde/5.jpg</image:loc><image:title>尚德養護中心 乾燥花壁畫 5</image:title></image:image>
+    <image:image><image:loc>https://eyunart.com/img/courses/shangde/6.jpg</image:loc><image:title>尚德養護中心 乾燥花壁畫 6</image:title></image:image>
+    <image:image><image:loc>https://eyunart.com/img/courses/shangde/7.jpg</image:loc><image:title>尚德養護中心 乾燥花壁畫 7</image:title></image:image>
+    <image:image><image:loc>https://eyunart.com/img/courses/shangde/8.jpg</image:loc><image:title>尚德養護中心 乾燥花壁畫 8</image:title></image:image>
+    <image:image><image:loc>https://eyunart.com/img/courses/shangde/9.jpg</image:loc><image:title>尚德養護中心 乾燥花壁畫 9</image:title></image:image>
+    <image:image><image:loc>https://eyunart.com/img/courses/shangde/10.jpg</image:loc><image:title>尚德養護中心 乾燥花壁畫 10</image:title></image:image>
+    <image:image><image:loc>https://eyunart.com/img/courses/shangde/11.jpg</image:loc><image:title>尚德養護中心 乾燥花壁畫 11</image:title></image:image>
+    <image:image><image:loc>https://eyunart.com/img/courses/shangde/12.jpg</image:loc><image:title>尚德養護中心 乾燥花壁畫 12</image:title></image:image>
+    <image:image><image:loc>https://eyunart.com/img/courses/shangde/13.jpg</image:loc><image:title>尚德養護中心 乾燥花壁畫 13</image:title></image:image>
+    <image:image><image:loc>https://eyunart.com/img/courses/shangde/14.jpg</image:loc><image:title>尚德養護中心 乾燥花壁畫 14</image:title></image:image>
+    <image:image><image:loc>https://eyunart.com/img/courses/shangde/15.jpg</image:loc><image:title>尚德養護中心 乾燥花壁畫 15</image:title></image:image>
+
+    <!-- 玫園課程相簿（1–15） -->
+    <image:image><image:loc>https://eyunart.com/img/courses/meiyuan/1.jpg</image:loc><image:title>玫園 流體熊 課程 1</image:title></image:image>
+    <image:image><image:loc>https://eyunart.com/img/courses/meiyuan/2.jpg</image:loc><image:title>玫園 流體熊 課程 2</image:title></image:image>
+    <image:image><image:loc>https://eyunart.com/img/courses/meiyuan/3.jpg</image:loc><image:title>玫園 流體熊 課程 3</image:title></image:image>
+    <image:image><image:loc>https://eyunart.com/img/courses/meiyuan/4.jpg</image:loc><image:title>玫園 流體熊 課程 4</image:title></image:image>
+    <image:image><image:loc>https://eyunart.com/img/courses/meiyuan/5.jpg</image:loc><image:title>玫園 流體熊 課程 5</image:title></image:image>
+    <image:image><image:loc>https://eyunart.com/img/courses/meiyuan/6.jpg</image:loc><image:title>玫園 流體熊 課程 6</image:title></image:image>
+    <image:image><image:loc>https://eyunart.com/img/courses/meiyuan/7.jpg</image:loc><image:title>玫園 流體熊 課程 7</image:title></image:image>
+    <image:image><image:loc>https://eyunart.com/img/courses/meiyuan/8.jpg</image:loc><image:title>玫園 流體熊 課程 8</image:title></image:image>
+    <image:image><image:loc>https://eyunart.com/img/courses/meiyuan/9.jpg</image:loc><image:title>玫園 流體熊 課程 9</image:title></image:image>
+    <image:image><image:loc>https://eyunart.com/img/courses/meiyuan/10.jpg</image:loc><image:title>玫園 流體熊 課程 10</image:title></image:image>
+    <image:image><image:loc>https://eyunart.com/img/courses/meiyuan/11.jpg</image:loc><image:title>玫園 流體熊 課程 11</image:title></image:image>
+    <image:image><image:loc>https://eyunart.com/img/courses/meiyuan/12.jpg</image:loc><image:title>玫園 流體熊 課程 12</image:title></image:image>
+    <image:image><image:loc>https://eyunart.com/img/courses/meiyuan/13.jpg</image:loc><image:title>玫園 流體熊 課程 13</image:title></image:image>
+    <image:image><image:loc>https://eyunart.com/img/courses/meiyuan/14.jpg</image:loc><image:title>玫園 流體熊 課程 14</image:title></image:image>
+    <image:image><image:loc>https://eyunart.com/img/courses/meiyuan/15.jpg</image:loc><image:title>玫園 流體熊 課程 15</image:title></image:image>
+
   </url>
 </urlset>
