@@ -3,8 +3,37 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <title>藝蘊沄匯｜官方網站 - 終身學習、公益課程與藝術陪伴</title>
-  <meta name="description" content="藝蘊沄匯｜關於我（張秀蘭）與公益課程活動。全新模板：純 CSS、雜誌排版、相簿燈箱、手機友善。" />
+  <meta name="description" content="藝蘊沄匯以多元學習結合公益行動，將手作與藝術帶進學校、育幼院、療養院與長照中心。每一次相聚，都是彼此成長、讓世界更好的開始。">
+
+  <!-- Canonical / hreflang / robots -->
+  <link rel="canonical" href="https://eyunart.com/">
+  <link rel="alternate" href="https://eyunart.com/" hreflang="zh-Hant">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph (Facebook / LINE / LinkedIn) -->
+  <meta property="og:title" content="藝蘊沄匯｜官方網站 - 終身學習、公益課程與藝術陪伴">
+  <meta property="og:description" content="把多元學習與公益實踐放在同一條路上。藝蘊沄匯走進各地機構，用藝術與陪伴把愛具體化。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://eyunart.com/">
+  <meta property="og:site_name" content="藝蘊沄匯 AYH">
+  <meta property="og:locale" content="zh_TW">
+  <meta property="og:image" content="https://eyunart.com/img/og-cover.jpg">
+  <meta property="og:image:secure_url" content="https://eyunart.com/img/og-cover.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="藝蘊沄匯：終身學習與公益課程">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="藝蘊沄匯｜官方網站 - 終身學習、公益課程與藝術陪伴">
+  <meta name="twitter:description" content="把多元學習與公益實踐放在同一條路上。藝蘊沄匯走進各地機構，用藝術與陪伴把愛具體化。">
+  <meta name="twitter:image" content="https://eyunart.com/img/og-cover.jpg">
+
+  <!-- PWA/theme（可選） -->
+  <meta name="theme-color" content="#fbf6f3">
+
   <style>
     /* ---------------------
        基礎主題（純 CSS 無框架）
@@ -166,6 +195,52 @@
       }
     }
   </style>
+
+  <!-- JSON-LD 結構化資料（WebSite + Organization） -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "name": "藝蘊沄匯 AYH",
+        "url": "https://eyunart.com/",
+        "inLanguage": "zh-Hant",
+        "description": "藝蘊沄匯以多元學習結合公益行動，將手作與藝術帶進學校、育幼院、療養院與長照中心。"
+      },
+      {
+        "@type": "Organization",
+        "name": "藝蘊沄匯",
+        "url": "https://eyunart.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://eyunart.com/img/logo.png"
+        },
+        "image": {
+          "@type": "ImageObject",
+          "url": "https://eyunart.com/img/og-cover.jpg",
+          "width": 1200,
+          "height": 630
+        },
+        "description": "把學習與公益同行，讓我們在學習中成長，在付出中找到意義。",
+        "email": "zixulan0823@gmail.com",
+        "areaServed": "TW",
+        "founder": "張秀蘭",
+        "foundingDate": "2024",
+        "sameAs": [
+          "https://line.me/ti/p/PkdvxZQNk-"
+        ],
+        "contactPoint": [{
+          "@type": "ContactPoint",
+          "contactType": "customer support",
+          "email": "zixulan0823@gmail.com",
+          "areaServed": "TW",
+          "availableLanguage": ["zh-Hant"]
+        }]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <a class="sr-only" href="#main">跳到主內容</a>
@@ -206,7 +281,7 @@
         <div class="badge">藝蘊沄匯 負責人</div>
         <div class="quote">我相信：學習不只是為自己，更能在過程中找到生命的方向，並把愛與善的力量傳遞出去。</div>
         <figure class="portrait" aria-label="張秀蘭照片">
-          <img src="https://i.postimg.cc/x1xY2TLh/photo-2025-09-26-13-43-53.jpg" alt="張秀蘭（藝蘊沄匯 負責人）" loading="lazy" onerror="this.closest('figure').style.display='none'"/>
+          <img src="/img/about/owner.jpg" alt="張秀蘭（藝蘊沄匯 負責人）" loading="lazy" onerror="this.closest('figure').style.display='none'"/>
           <figcaption>張秀蘭｜藝蘊沄匯 負責人</figcaption>
         </figure>
       </div>
@@ -238,21 +313,21 @@
               <p>或許這只是短短的一次相遇，但不是匆匆的一面。接下來，我們還會到不同縣市走走；在育幼院、在療養院，把愛做成看得見、摸得到的小事，讓那道光在彼此的眼裡慢慢擴散。</p>
             </div>
             <div class="gallery" aria-label="尚德課程相簿">
-              <img src="https://i.postimg.cc/nrSfqnpN/1.jpg" alt="尚德養護中心 乾燥花壁畫 1" loading="lazy" />
-              <img src="https://i.postimg.cc/rprFnDkZ/2.jpg" alt="尚德養護中心 乾燥花壁畫 2" loading="lazy" />
-              <img src="https://i.postimg.cc/cHG1Vd1x/3.jpg" alt="尚德養護中心 乾燥花壁畫 3" loading="lazy" />
-              <img src="https://i.postimg.cc/bwMw9QK2/4.jpg" alt="尚德養護中心 乾燥花壁畫 4" loading="lazy" />
-              <img src="https://i.postimg.cc/hthGmC3B/5.jpg" alt="尚德養護中心 乾燥花壁畫 5" loading="lazy" />
-              <img src="https://i.postimg.cc/jqXqFVpT/6.jpg" alt="尚德養護中心 乾燥花壁畫 6" loading="lazy" />
-              <img src="https://i.postimg.cc/tTdRb87h/7.jpg" alt="尚德養護中心 乾燥花壁畫 7" loading="lazy" />
-              <img src="https://i.postimg.cc/J0P1DJN0/8.jpg" alt="尚德養護中心 乾燥花壁畫 8" loading="lazy" />
-              <img src="https://i.postimg.cc/Y0prC8mT/9.jpg" alt="尚德養護中心 乾燥花壁畫 9" loading="lazy" />
-              <img src="https://i.postimg.cc/bNwYXCPt/10.jpg" alt="尚德養護中心 乾燥花壁畫 10" loading="lazy" />
-              <img src="https://i.postimg.cc/02Xk9Y5H/11.jpg" alt="尚德養護中心 乾燥花壁畫 11" loading="lazy" />
-              <img src="https://i.postimg.cc/y8JVxDk6/12.jpg" alt="尚德養護中心 乾燥花壁畫 12" loading="lazy" />
-              <img src="https://i.postimg.cc/6pDBvBvr/13.jpg" alt="尚德養護中心 乾燥花壁畫 13" loading="lazy" />
-              <img src="https://i.postimg.cc/QtDsfSSV/14.jpg" alt="尚德養護中心 乾燥花壁畫 14" loading="lazy" />
-              <img src="https://i.postimg.cc/HLXd0Fwf/15.jpg" alt="尚德養護中心 乾燥花壁畫 15" loading="lazy" />
+              <img src="/img/courses/shangde/1.jpg" alt="尚德養護中心 乾燥花壁畫 1" loading="lazy" />
+              <img src="/img/courses/shangde/2.jpg" alt="尚德養護中心 乾燥花壁畫 2" loading="lazy" />
+              <img src="/img/courses/shangde/3.jpg" alt="尚德養護中心 乾燥花壁畫 3" loading="lazy" />
+              <img src="/img/courses/shangde/4.jpg" alt="尚德養護中心 乾燥花壁畫 4" loading="lazy" />
+              <img src="/img/courses/shangde/5.jpg" alt="尚德養護中心 乾燥花壁畫 5" loading="lazy" />
+              <img src="/img/courses/shangde/6.jpg" alt="尚德養護中心 乾燥花壁畫 6" loading="lazy" />
+              <img src="/img/courses/shangde/7.jpg" alt="尚德養護中心 乾燥花壁畫 7" loading="lazy" />
+              <img src="/img/courses/shangde/8.jpg" alt="尚德養護中心 乾燥花壁畫 8" loading="lazy" />
+              <img src="/img/courses/shangde/9.jpg" alt="尚德養護中心 乾燥花壁畫 9" loading="lazy" />
+              <img src="/img/courses/shangde/10.jpg" alt="尚德養護中心 乾燥花壁畫 10" loading="lazy" />
+              <img src="/img/courses/shangde/11.jpg" alt="尚德養護中心 乾燥花壁畫 11" loading="lazy" />
+              <img src="/img/courses/shangde/12.jpg" alt="尚德養護中心 乾燥花壁畫 12" loading="lazy" />
+              <img src="/img/courses/shangde/13.jpg" alt="尚德養護中心 乾燥花壁畫 13" loading="lazy" />
+              <img src="/img/courses/shangde/14.jpg" alt="尚德養護中心 乾燥花壁畫 14" loading="lazy" />
+              <img src="/img/courses/shangde/15.jpg" alt="尚德養護中心 乾燥花壁畫 15" loading="lazy" />
             </div>
           </div>
         </div>
@@ -269,21 +344,21 @@
               <p>收拾器材時，看著一整排正風乾的熊，心裡湧上一種安穩的踏實。也謝謝每位長者給我們的信任與笑容。接下來，我們還會帶著更多主題，讓善意成為習慣，讓學習成為日常，讓今天比昨天更踏實。</p>
             </div>
             <div class="gallery" aria-label="玫園課程相簿">
-              <img src="https://i.postimg.cc/sx5sdkrL/photo-2025-08-17-14-49-19.jpg" alt="玫園 流體熊 課程 1" loading="lazy" />
-              <img src="https://i.postimg.cc/1RpDPN3X/photo-2025-08-17-14-49-34.jpg" alt="玫園 流體熊 課程 2" loading="lazy" />
-              <img src="https://i.postimg.cc/gjPR8GNG/photo-2025-08-17-14-49-35.jpg" alt="玫園 流體熊 課程 3" loading="lazy" />
-              <img src="https://i.postimg.cc/nrYm1NPB/photo-2025-08-17-14-49-48.jpg" alt="玫園 流體熊 課程 4" loading="lazy" />
-              <img src="https://i.postimg.cc/0QSDzzGt/photo-2025-08-17-14-49-49.jpg" alt="玫園 流體熊 課程 5" loading="lazy" />
-              <img src="https://i.postimg.cc/rwp4SnCR/photo-2025-08-17-14-49-51.jpg" alt="玫園 流體熊 課程 6" loading="lazy" />
-              <img src="https://i.postimg.cc/sDs72DMc/photo-2025-08-17-15-14-07.jpg" alt="玫園 流體熊 課程 7" loading="lazy" />
-              <img src="https://i.postimg.cc/dt6dZPdK/photo-2025-08-17-15-14-11.jpg" alt="玫園 流體熊 課程 8" loading="lazy" />
-              <img src="https://i.postimg.cc/g2BZ4VNS/photo-2025-08-17-15-14-13.jpg" alt="玫園 流體熊 課程 9" loading="lazy" />
-              <img src="https://i.postimg.cc/fbG0Qw4Y/photo-2025-08-17-15-14-42.jpg" alt="玫園 流體熊 課程 10" loading="lazy" />
-              <img src="https://i.postimg.cc/LsYZWJWH/photo-2025-08-17-15-23-19.jpg" alt="玫園 流體熊 課程 11" loading="lazy" />
-              <img src="https://i.postimg.cc/yd03VwBt/photo-2025-08-17-15-23-20.jpg" alt="玫園 流體熊 課程 12" loading="lazy" />
-              <img src="https://i.postimg.cc/PJhpN25x/photo-2025-08-17-15-23-22.jpg" alt="玫園 流體熊 課程 13" loading="lazy" />
-              <img src="https://i.postimg.cc/SRrX9CnG/photo-2025-08-17-15-23-47.jpg" alt="玫園 流體熊 課程 14" loading="lazy" />
-              <img src="https://i.postimg.cc/bYHS4cm2/photo-2025-08-18-12-35-23.jpg" alt="玫園 流體熊 課程 15" loading="lazy" />
+              <img src="/img/courses/meiyuan/1.jpg" alt="玫園 流體熊 課程 1" loading="lazy" />
+              <img src="/img/courses/meiyuan/2.jpg" alt="玫園 流體熊 課程 2" loading="lazy" />
+              <img src="/img/courses/meiyuan/3.jpg" alt="玫園 流體熊 課程 3" loading="lazy" />
+              <img src="/img/courses/meiyuan/4.jpg" alt="玫園 流體熊 課程 4" loading="lazy" />
+              <img src="/img/courses/meiyuan/5.jpg" alt="玫園 流體熊 課程 5" loading="lazy" />
+              <img src="/img/courses/meiyuan/6.jpg" alt="玫園 流體熊 課程 6" loading="lazy" />
+              <img src="/img/courses/meiyuan/7.jpg" alt="玫園 流體熊 課程 7" loading="lazy" />
+              <img src="/img/courses/meiyuan/8.jpg" alt="玫園 流體熊 課程 8" loading="lazy" />
+              <img src="/img/courses/meiyuan/9.jpg" alt="玫園 流體熊 課程 9" loading="lazy" />
+              <img src="/img/courses/meiyuan/10.jpg" alt="玫園 流體熊 課程 10" loading="lazy" />
+              <img src="/img/courses/meiyuan/11.jpg" alt="玫園 流體熊 課程 11" loading="lazy" />
+              <img src="/img/courses/meiyuan/12.jpg" alt="玫園 流體熊 課程 12" loading="lazy" />
+              <img src="/img/courses/meiyuan/13.jpg" alt="玫園 流體熊 課程 13" loading="lazy" />
+              <img src="/img/courses/meiyuan/14.jpg" alt="玫園 流體熊 課程 14" loading="lazy" />
+              <img src="/img/courses/meiyuan/15.jpg" alt="玫園 流體熊 課程 15" loading="lazy" />
             </div>
           </div>
         </div>
@@ -352,5 +427,3 @@
   </script>
 </body>
 </html>
-
-
