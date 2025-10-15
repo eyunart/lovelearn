@@ -35,13 +35,15 @@
   <meta name="twitter:description" content="把多元學習與公益實踐放在同一條路上。藝蘊沄匯走進各地機構，用藝術與陪伴把愛具體化。">
   <meta name="twitter:image" content="https://eyunart.com/img/og-cover.jpg">
 
-  <!-- PWA/theme（可選） -->
+  <!-- PWA/theme（只用淺色） -->
   <meta name="theme-color" content="#fbf6f3">
+  <meta name="color-scheme" content="light">
 
   <style>
     /* ---------------------
        基礎主題（純 CSS 無框架）
        書報系、留白、米色紙感
+       固定淺色：不跟隨系統暗色
     ---------------------- */
     :root{
       --bg:#fbf6f3;           /* 紙感米色 */
@@ -57,18 +59,16 @@
       --sans: system-ui, -apple-system, "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
       --serif: ui-serif, Georgia, "Noto Serif TC", serif;
       --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      color-scheme: light;    /* 告訴瀏覽器本頁只用淺色控制項 */
     }
-    @media (prefers-color-scheme: dark){
-      :root{ --bg:#101313; --ink:#f3f3f3; --muted:#b9c2bf; --card:#161919; --line:#262b2a; --brand:#7cc7b3; --brand-ink:#bfe8dc; }
-      .paper{box-shadow:none}
-    }
+
     html{scroll-behavior:smooth}
-    body{margin:0; font-family:var(--sans); background:var(--bg); color:var(--ink);}
+    body{margin:0; font-family:var(--sans); background:var(--bg); color:var(--ink);}    
     .wrap{width:var(--w); margin-inline:auto}
     .sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0}
 
     /* 頂部導覽：details/summary 手機友善 */
-    header{position:sticky; top:0; z-index:20; background:color-mix(in srgb, var(--bg) 88%, #fff 12%); border-bottom:1px solid var(--line);}
+    header{position:sticky; top:0; z-index:20; background:color-mix(in srgb, var(--bg) 88%, #fff 12%); border-bottom:1px solid var(--line);}    
     .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
     .brand{font-family:var(--serif); font-weight:700; letter-spacing:.02em; font-size:clamp(20px, 3vw, 28px)}
     .brand em{color:var(--brand); font-style:normal}
@@ -88,7 +88,7 @@
     /* Hero */
     .hero{padding: clamp(48px, 8vw, 96px) 0; border-bottom:1px solid var(--line);
            background:radial-gradient(1200px 700px at -10% -20%, rgba(217,137,158,.10), transparent),
-                       radial-gradient(900px 500px at 110% 0%, rgba(217,137,158,.08), transparent);}
+                       radial-gradient(900px 500px at 110% 0%, rgba(217,137,158,.08), transparent);}    
     .hero p{max-width:38ch; color:var(--muted); margin:18px 0 0; font-size: clamp(var(--fs-hero-sub-min), 2.2vw, var(--fs-hero-sub-max));}
 
     /* 卡片紙張 */
@@ -466,4 +466,3 @@
   </script>
 </body>
 </html>
-
