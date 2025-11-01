@@ -85,10 +85,71 @@
       .panel a:last-child{border-bottom:none}
     }
 
+    /* 🔥 成果數據區 */
+    .statsbar{
+      background:radial-gradient(1000px 500px at 0% 0%, rgba(217,137,158,.10), transparent),
+                 radial-gradient(800px 400px at 100% 20%, rgba(217,137,158,.07), transparent);
+      border-bottom:1px solid var(--line);
+      padding:24px 0;
+    }
+    .statswrap{
+      width:var(--w);
+      margin-inline:auto;
+      display:grid;
+      grid-template-columns: repeat(3,1fr);
+      gap:18px;
+    }
+    .statcard{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:18px;
+      text-align:center;
+    }
+    .stat-label{
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.4;
+      letter-spacing:.03em;
+    }
+    .stat-value{
+      font-family:var(--serif);
+      font-weight:600;
+      color:var(--brand-ink);
+      font-size:clamp(24px,2.2vw,32px);
+      line-height:1.3;
+      margin-top:12px;
+      text-align:center;
+      min-height:1.4em;
+      white-space:nowrap;
+    }
+    .stat-note{
+      font-size:13px;
+      color:var(--muted);
+      margin-top:12px;
+      line-height:1.4;
+    }
+    @media(max-width:800px){
+      .statswrap{
+        grid-template-columns:1fr;
+      }
+      .statcard{
+        text-align:center;
+      }
+      .stat-value{
+        font-size:28px;
+        text-align:center;
+      }
+    }
+
     /* Hero */
-    .hero{padding: clamp(48px, 8vw, 96px) 0; border-bottom:1px solid var(--line);
-           background:radial-gradient(1200px 700px at -10% -20%, rgba(217,137,158,.10), transparent),
-                       radial-gradient(900px 500px at 110% 0%, rgba(217,137,158,.08), transparent);}    
+    .hero{
+      padding: clamp(32px, 5vw, 64px) 0  clamp(48px, 8vw, 96px);
+      border-bottom:1px solid var(--line);
+      background:radial-gradient(1200px 700px at -10% -20%, rgba(217,137,158,.10), transparent),
+                 radial-gradient(900px 500px at 110% 0%, rgba(217,137,158,.08), transparent);
+    }
     .hero p{max-width:38ch; color:var(--muted); margin:18px 0 0; font-size: clamp(var(--fs-hero-sub-min), 2.2vw, var(--fs-hero-sub-max));}
 
     /* 卡片紙張 */
@@ -277,6 +338,40 @@
     </div>
   </header>
 
+  <!-- 🔥 成果數據區 -->
+  <section class="statsbar">
+    <div class="statswrap">
+
+      <!-- 幫助人數 -->
+      <div class="statcard">
+        <div class="stat-label">累計陪伴與服務</div>
+        <div class="stat-value">
+          <span id="helpCount" data-target="300">0</span> +
+        </div>
+        <div class="stat-note">長照中心／教養院／育幼院</div>
+      </div>
+
+      <!-- 支持金額 -->
+      <div class="statcard">
+        <div class="stat-label">公益支持累積</div>
+        <div class="stat-value">
+          NT$ <span id="supportCount" data-target="7500000">0</span> +
+        </div>
+        <div class="stat-note">含材料、交通與物資</div>
+      </div>
+
+      <!-- 瀏覽人氣 -->
+      <div class="statcard">
+        <div class="stat-label">瀏覽人氣</div>
+        <div class="stat-value">
+          <span id="viewCount">0</span>
+        </div>
+        <div class="stat-note">感謝每一位關注這份善意的朋友</div>
+      </div>
+
+    </div>
+  </section>
+
   <!-- Hero -->
   <section class="hero">
     <div class="wrap">
@@ -345,8 +440,7 @@
           </div>
         </div>
 
-        
-         <!-- Course 2 -->
+        <!-- Course 2 -->
         <div class="node paper">
           <div class="course">
             <h4>永恆的美麗｜圓杯永生花</h4>
@@ -371,7 +465,6 @@
           </div>
         </div>
 
-        
         <!-- Course 3 -->
         <div class="node paper">
           <div class="course">
@@ -450,7 +543,7 @@
           </div>
         </div>
 
-                <!-- Course 6: DIY竹、果實存錢筒 -->
+        <!-- Course 6: DIY竹、果實存錢筒 -->
         <div class="node paper">
           <div class="course">
             <h4>用心看世界｜DIY竹、果實存錢筒</h4>
@@ -482,7 +575,7 @@
           </div>
         </div>
 
-                <!-- Course 7: 寵物志工服務日 -->
+        <!-- Course 7: 寵物志工服務日 -->
         <div class="node paper">
           <div class="course">
             <h4>領養代替購買｜寵物志工服務日</h4>
@@ -556,7 +649,9 @@
 
     // 行動導覽：點連結後自動收合
     const navdrop = document.querySelector('details.navdrop');
-    document.querySelectorAll('.panel a').forEach(a=>a.addEventListener('click',()=>{navdrop.open=false;}));
+    if (navdrop){
+      document.querySelectorAll('.panel a').forEach(a=>a.addEventListener('click',()=>{navdrop.open=false;}));
+    }
 
     // 圖片燈箱
     const dlg = document.getElementById('lightbox');
@@ -568,13 +663,91 @@
     lbClose.addEventListener('click', ()=> dlg.close());
     dlg.addEventListener('click', (e)=>{ if(e.target===dlg) dlg.close(); });
     document.addEventListener('keydown', (e)=>{ if(e.key==='Escape' && dlg.open) dlg.close(); });
+
+    // =========================
+    // 🔢 數字遞增動畫 (幫助人數 / 支持金額)
+    // =========================
+    function animateCount(el){
+      const target = parseInt(el.getAttribute('data-target'),10);
+      let current = 0;
+      const step = Math.ceil(target / 60); // 跳的幅度
+      const run = ()=>{
+        current += step;
+        if(current >= target){
+          el.textContent = target.toLocaleString();
+        }else{
+          el.textContent = current.toLocaleString();
+          requestAnimationFrame(run);
+        }
+      };
+      run();
+    }
+
+    // =========================
+    // 👀 瀏覽人氣計數邏輯
+    // =========================
+    // 初始瀏覽人數（基準值）
+    const baseCount = 32756;
+
+    // 從 localStorage 讀，如果沒有就用 baseCount
+    let totalViews = parseInt(localStorage.getItem('eyunart_views') || baseCount, 10);
+
+    // 24 小時內只+1次
+    const lastVisit = localStorage.getItem('eyunart_lastVisit');
+    const now = Date.now();
+    const oneDay = 24 * 60 * 60 * 1000;
+
+    if(!lastVisit || now - parseInt(lastVisit,10) > oneDay){
+      totalViews++;
+      localStorage.setItem('eyunart_views', totalViews);
+      localStorage.setItem('eyunart_lastVisit', now.toString());
+    }
+
+    function animateViews(finalNumber){
+      const viewEl = document.getElementById('viewCount');
+      let cur = 0;
+      const target = finalNumber;
+      const step = Math.ceil(target / 60);
+      const go = ()=>{
+        cur += step;
+        if(cur >= target){
+          viewEl.textContent = target.toLocaleString();
+        }else{
+          viewEl.textContent = cur.toLocaleString();
+          requestAnimationFrame(go);
+        }
+      };
+      go();
+    }
+
+    // =========================
+    // 🚀 啟動三個數值動畫（只跑一次）
+    // =========================
+    const statsbar = document.querySelector('.statsbar');
+    let statsDone = false;
+
+    function startAllStats(){
+      if (statsDone) return;
+      statsDone = true;
+
+      animateCount(document.getElementById('helpCount'));
+      animateCount(document.getElementById('supportCount'));
+      animateViews(totalViews);
+    }
+
+    if ('IntersectionObserver' in window && statsbar){
+      const io = new IntersectionObserver(entries=>{
+        entries.forEach(entry=>{
+          if(entry.isIntersecting){
+            startAllStats();
+            io.disconnect();
+          }
+        })
+      }, {threshold:0.3});
+      io.observe(statsbar);
+    } else {
+      startAllStats();
+    }
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
